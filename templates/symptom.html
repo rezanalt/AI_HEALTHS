@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/symptom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="sidebar-buttons">
+        <form action="{{ url_for('main_page') }}" method="get">
+            <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Anasayfa</span>
+            </button>
+        </form>
+        <form action="{{ url_for('Nevus_page') }}" method="get">
+            <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Nevus</span>
+            </button>
+        </form>
+        <form action="{{ url_for('Brain_Tumor_page') }}" method="get">
+            <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Brain Tumor</span>
+            </button>
+        </form>
+        <form action="{{ url_for('eye_page') }}" method="get">
+          <button class="learn-more">
+              <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+              </span>
+              <span class="button-text">Eye Disease</span>
+          </button>
+        </form>
+    </div>
+  </div>
+   
+  <span class="open_side mt-2" onclick="openNav()" style="top: 10px; left: 10px; position: relative;" >
+      <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+  </span>
+  <div class="form">
+    <div class="rotating-text-wrapper">
+      <h2>Semptomları Girin, Hastalığınızı Öğrenin</h2>
+      <h2>En Fazla 17 Semptom Seçebilirsiniz</h2>
+      <h2>Arama Çubuğu İle Hızlı Arama</h2>
+    </div>
+    <form class="form1" method="post" action="/disease" enctype="multipart/form-data">
+      <div class="project">
+          <div class="boxes">
+            <div class="container">
+              <input type="text" id="search__box" placeholder="Ara..." class="search__box">
+              <i class="fas fa-search search__icon" id="icon" ></i>
+            </div>
+        
+            <div class="box" id="box">
+                <!-- Checkbox'lar javascriptten çekiliyor -->
+            </div>
+          </div>
+          <button id="smp_btn" class="cssbuttons-io-button" onclick="sendCheckboxValues()">
+            Neyim Var ??
+            <div class="icon">
+              <svg
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+          </button>
+      </div>
+      
+    
+      <div class="text_box" id="text_box">
+        {% if predict_result %}
+        <h1 class="disease_name">Hastalık İsmi:{{ predict_result['Hastalık İsmi'] }}</h1>
+        <h1 class="desc_h">Hastalık Açıklaması:</h1>
+        <p class="disease_descr"> {{ predict_result['Hastalık Açıklaması'] }}</p>
+        <h2 class="to_do">Yapılması Önerilen Şeyler:</h2>
+        <ul>
+            {% for item in predict_result['Yapılması Önerilen Şeyler'] %}
+            <li class="to_do_li">{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+      </div>
+      
+            
+  </form>
+  </div>
+<script>
+  var sympList =['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering', 'chills', 'joint_pain', 'stomach_pain', 'acidity', 'ulcers_on_tongue', 'muscle_wasting', 'vomiting', 'burning_micturition', 'spotting_urination', 'fatigue', 'weight_gain', 'anxiety', 'cold_hands_and_feets', 'mood_swings', 'weight_loss', 'restlessness', 'lethargy', 'patches_in_throat', 'irregular_sugar_level', 'cough', 'high_fever', 'sunken_eyes', 'breathlessness', 'sweating', 'dehydration', 'indigestion', 'headache', 'yellowish_skin', 'dark_urine', 'nausea', 'loss_of_appetite', 'pain_behind_the_eyes', 'back_pain', 'constipation', 'abdominal_pain', 'diarrhoea', 'mild_fever', 'yellow_urine', 'yellowing_of_eyes', 'acute_liver_failure', 'fluid_overload', 'swelling_of_stomach', 'swelled_lymph_nodes', 'malaise', 'blurred_and_distorted_vision', 'phlegm', 'throat_irritation', 'redness_of_eyes', 'sinus_pressure', 'runny_nose', 'congestion', 'chest_pain', 'weakness_in_limbs', 'fast_heart_rate', 'pain_during_bowel_movements', 'pain_in_anal_region', 'bloody_stool', 'irritation_in_anus', 'neck_pain', 'dizziness', 'cramps', 'bruising', 'obesity', 'swollen_legs', 'swollen_blood_vessels', 'puffy_face_and_eyes', 'enlarged_thyroid', 'brittle_nails', 'swollen_extremeties', 'excessive_hunger', 'extra_marital_contacts', 'drying_and_tingling_lips', 'slurred_speech', 'knee_pain', 'hip_joint_pain', 'muscle_weakness', 'stiff_neck', 'swelling_joints', 'movement_stiffness', 'spinning_movements', 'loss_of_balance', 'unsteadiness', 'weakness_of_one_body_side', 'loss_of_smell', 'bladder_discomfort', 'foul_smell_ofurine', 'continuous_feel_of_urine', 'passage_of_gases', 'internal_itching', 'toxic_look_(typhos)', 'depression', 'irritability', 'muscle_pain', 'altered_sensorium', 'red_spots_over_body', 'belly_pain', 'abnormal_menstruation', 'dischromic_patches', 'watering_from_eyes', 'increased_appetite', 'polyuria', 'family_history', 'mucoid_sputum', 'rusty_sputum', 'lack_of_concentration', 'visual_disturbances', 'receiving_blood_transfusion', 'receiving_unsterile_injections', 'coma', 'stomach_bleeding', 'distention_of_abdomen', 'history_of_alcohol_consumption', 'fluid_overload', 'blood_in_sputum', 'prominent_veins_on_calf', 'palpitations', 'painful_walking', 'pus_filled_pimples', 'blackheads', 'scurring', 'skin_peeling', 'silver_like_dusting', 'small_dents_in_nails', 'inflammatory_nails', 'blister', 'red_sore_around_nose', 'yellow_crust_ooze', 'prognosis']
+  var selectedSymptoms = [];
+  var text_box = document.getElementById('text_box')
+  var smp_btn = document.getElementById('smp_btn')
+
+  function updateSymptoms(index) {
+      var checkbox = document.getElementsByName('symptom')[index];
+
+      if (checkbox.checked) {
+          // Seçili checkbox'ın değerini yeni listeye ekle
+          selectedSymptoms.push(sympList[index]);
+      } else {
+          // Seçili checkbox'ın değerini yeni listeden çıkar
+          selectedSymptoms = selectedSymptoms.filter(function(value) {
+              return value !== index;
+          });
+      }
+  }
+  var formSubmitted = false;
+  var diseaseDetectUrl = "{{ url_for('disease_detect') }}";
+  function sendCheckboxValues() {
+      if (!formSubmitted) {
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+          var selectedValues = Array.from(checkboxes).map(function (checkbox) {
+              return checkbox.value;
+          });
+
+          // Seçilen değerleri form verisi olarak gönder
+          var formData = new FormData();
+          formData.append('selected_values', selectedValues.join(','));
+
+          fetch(diseaseDetectUrl, {
+              method: 'POST',
+              body: formData,
+          })
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.error('POST isteği hatası:', error));
+
+          // Formun sadece bir kez gönderilmesini sağla
+          formSubmitted = true;
+      }
+  }
+
+function translateToTurkish(text) {
+  // Örnek bir çeviri
+  const translations = {
+    'itching': 'Kaşıntı',
+    'skin_rash': 'Cilt döküntüsü',
+    'nodal_skin_eruptions': 'Nodal cilt tahrişi',
+    'continuous_sneezing': 'Sürekli hapşırma',
+    'shivering': 'Titreme',
+    'chills': 'Üşüme',
+    'joint_pain': 'Eklem ağrısı',
+    'stomach_pain': 'Mide ağrısı',
+    'acidity': 'Asitlik',
+    'ulcers_on_tongue': 'Dil ülserleri',
+    'muscle_wasting': 'Kas kaybı',
+    'vomiting': 'Kusma',
+    'burning_micturition': 'Yanma hissi idrarda',
+    'spotting_urination': 'Leke şeklinde idrarda',
+    'fatigue': 'Tükenmişlik',
+    'weight_gain': 'Kilo alma',
+    'anxiety': 'Anksiyete',
+    'cold_hands_and_feets': 'Soğuk eller ve ayaklar',
+    'mood_swings': 'Mizaç değişiklikleri',
+    'weight_loss': 'Kilo kaybı',
+    'restlessness': 'Huzursuzluk',
+    'lethargy': 'Uyuşukluk',
+    'patches_in_throat': 'Boğazda lekeler',
+    'irregular_sugar_level': 'Düzensiz şeker seviyesi',
+    'cough': 'Öksürük',
+    'high_fever': 'Yüksek ateş',
+    'sunken_eyes': 'Çökmüş gözler',
+    'breathlessness': 'Nefes darlığı',
+    'sweating': 'Terleme',
+    'dehydration': 'Susuzluk',
+    'indigestion': 'Hazımsızlık',
+    'headache': 'Baş ağrısı',
+    'yellowish_skin': 'Sarımsı cilt',
+    'dark_urine': 'Koyu idrar',
+    'nausea': 'Mide bulantısı',
+    'loss_of_appetite': 'İştah kaybı',
+    'pain_behind_the_eyes': 'Göz arkasında ağrı',
+    'back_pain': 'Bel ağrısı',
+    'constipation': 'Kabızlık',
+    'abdominal_pain': 'Karın ağrısı',
+    'diarrhoea': 'İshal',
+    'mild_fever': 'Hafif ateş',
+    'yellow_urine': 'Sarı idrar',
+    'yellowing_of_eyes': 'Göz beyazlarının sararması',
+    'acute_liver_failure': 'Akut karaciğer yetmezliği',
+    'fluid_overload': 'Sıvı yüklenmesi',
+    'swelling_of_stomach': 'Mide şişmesi',
+    'swelled_lymph_nodes': 'Şişmiş lenf nodları',
+    'malaise': 'Genel kötü hissetme',
+    'blurred_and_distorted_vision': 'Bulanık ve bozulmuş görüş',
+    'phlegm': 'Balgam',
+    'throat_irritation': 'Boğaz tahrişi',
+    'redness_of_eyes': 'Gözlerin kızarması',
+    'sinus_pressure': 'Sinüs basıncı',
+    'runny_nose': 'Burun akıntısı',
+    'congestion': 'Tıkanıklık',
+    'chest_pain': 'Göğüs ağrısı',
+    'weakness_in_limbs': 'Uzuvlarda Zayıflık',
+    'fast_heart_rate': 'Hızlı kalp atışı',
+    'pain_during_bowel_movements': 'Dışkılama sırasında ağrı',
+    'pain_in_anal_region': 'Anal bölgede ağrı',
+    'bloody_stool': 'Kanlı dışkı',
+    'irritation_in_anus': 'Anal bölgede tahriş',
+    'neck_pain': 'Boyun ağrısı',
+    'dizziness': 'Baş dönmesi',
+    'cramps': 'Kramplar',
+    'bruising': 'Morarma',
+    'obesity': 'Obezite',
+    'swollen_legs': 'Şişmiş bacaklar',
+    'swollen_blood_vessels': 'Şişmiş kan damarları',
+    'puffy_face_and_eyes': 'Şişmiş yüz ve gözler',
+    'enlarged_thyroid': 'Büyümüş tiroid',
+    'brittle_nails': 'Kırılgan tırnaklar',
+    'swollen_extremeties': 'Şişkin uzuvlar',
+    'excessive_hunger': 'Aşırı açlık',
+    'extra_marital_contacts': 'Ekstra evlilik dışı ilişkiler',
+    'drying_and_tingling_lips': 'Kuruma ve karıncalanma dudaklar',
+    'slurred_speech': 'Gece konuşma',
+    'knee_pain': 'Diz ağrısı',
+    'hip_joint_pain': 'Kalça eklem ağrısı',
+    'muscle_weakness': 'Kas zayıflığı',
+    'stiff_neck': 'Sert boyun',
+    'swelling_joints': 'Şişmiş eklem',
+    'movement_stiffness': 'Hareket sertliği',
+    'spinning_movements': 'Döner hareketler',
+    'loss_of_balance': 'Denge kaybı',
+    'unsteadiness': 'Kararsızlık',
+    'weakness_of_one_body_side': 'Bir vücut tarafının zayıflığı',
+    'loss_of_smell': 'Koku kaybı',
+    'bladder_discomfort': 'Mesane rahatsızlığı',
+    'foul_smell_ofurine': 'İdrarın kötü kokusu',
+    'continuous_feel_of_urine': 'Sürekli idrar hissi',
+    'passage_of_gases': 'Gaz geçişi',
+    'internal_itching': 'İç kaşıntı',
+    'toxic_look_(typhos)': 'Zehirli görünüm (tifos)',
+    'depression': 'Depresyon',
+    'irritability': 'Sinirlilik',
+    'muscle_pain': 'Kas ağrısı',
+    'altered_sensorium': 'Değişmiş sensorium',
+    'red_spots_over_body': 'Vücutta kırmızı lekeler',
+    'belly_pain': 'Göbek ağrısı',
+    'abnormal_menstruation': 'Anormal adet',
+    'dischromic_patches': 'Diskromik lekeler',
+    'watering_from_eyes': 'Gözlerden sulanma',
+    'increased_appetite': 'Artan iştah',
+    'polyuria': 'Poliüri',
+    'family_history': 'Aile geçmişi',
+    'mucoid_sputum': 'Mukoid balgam',
+    'rusty_sputum': 'Paslı balgam',
+    'lack_of_concentration': 'Konsantrasyon eksikliği',
+    'visual_disturbances': 'Görsel bozukluklar',
+    'receiving_blood_transfusion': 'Kan transfüzyonu almak',
+    'receiving_unsterile_injections': 'Antiseptik olmayan iğne almak',
+    'coma': 'Koma',
+    'stomach_bleeding': 'Mide kanaması',
+    'distention_of_abdomen': 'Karın şişmesi',
+    'history_of_alcohol_consumption': 'Alkol tüketimi geçmişi',
+    'fluid_overload': 'Sıvı yüklenmesi',
+    'blood_in_sputum': 'Balgamda kan',
+    'prominent_veins_on_calf': 'Bacakta belirgin damarlar',
+    'palpitations': 'Çarpıntı',
+    'painful_walking': 'Ağrılı yürüme',
+    'pus_filled_pimples': 'Izgara dolu sivilceler',
+    'blackheads': 'Siyah noktalar',
+    'scurring': 'Kabuklanma',
+    'skin_peeling': 'Cilt soyulması',
+    'silver_like_dusting': 'Gümüş gibi tozlanma',
+    'small_dents_in_nails': 'Tırnaklarda küçük çukurlar',
+    'inflammatory_nails': 'İnflamatuar tırnaklar',
+    'blister': 'Su toplama',
+    'red_sore_around_nose': 'Burun etrafında kızarıklık',
+    'yellow_crust_ooze': 'Sarı kabuk sızması',
+    'prognosis': 'Prognosis',
+  };
+
+  // Eğer çeviri bulunursa çeviriyi döndür, bulunamazsa orijinal metni döndür
+  return translations.hasOwnProperty(text) ? translations[text] : text;
+}
+// Liste elemanlarını checkbox optionlarına dönüştür
+function listToCheckboxes(list, containerId) {
+  var container = document.getElementById(containerId);
+
+  // Container'ı temizle
+  container.innerHTML = '';
+
+  // Her eleman için checkbox ve label oluştur
+  list.forEach(function (item) {
+    var checkboxContainer = document.createElement('div');
+    checkboxContainer.className = 'box1';
+
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = item;
+    checkbox.id = item;
+
+    var label = document.createElement('label');
+    label.htmlFor = item;
+    label.appendChild(document.createTextNode(translateToTurkish(item)));
+
+    // Container'a checkbox ve label ekleyin
+    checkboxContainer.appendChild(checkbox);
+    checkboxContainer.appendChild(label);
+    container.appendChild(checkboxContainer);
+
+    // Checkbox'a tıklandığında seçilen değerleri gösteren fonksiyonu çağır
+    checkbox.addEventListener('change', function() {
+      showSelectedValues();
+    });
+  });
+}
+
+// Liste elemanlarını checkbox optionlarına dönüştür
+listToCheckboxes(sympList, 'box');
+
+///////////////////////Arama Kutusu /////////////////////////
+document.getElementById('search__box').addEventListener('input', function () {
+  var searchTerm = this.value.toLowerCase();
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  checkboxes.forEach(function (checkbox) {
+    var label = checkbox.nextSibling; // Label'ı al
+
+    if (label && label.textContent.toLowerCase().includes(searchTerm)) {
+      checkbox.style.display = 'block'; // Eşleşiyorsa göster
+      label.style.display = 'block';
+    } else {
+      checkbox.style.display = 'none'; // Eşleşmiyorsa gizle
+      label.style.display = 'none';
+    }
+  });
+});
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+}
+
+</script>
+</body>
+
+</html>

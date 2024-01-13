@@ -1,0 +1,4 @@
+nodal_skin_eruptions
+muscle_wasting
+anxiety
+high_fever

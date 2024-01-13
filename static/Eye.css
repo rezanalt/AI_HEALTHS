@@ -1,0 +1,602 @@
+.button{
+    width: 300px;
+    position: relative; 
+    display: inline-block; 
+    padding: 12px 24px; 
+    font-size: 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    border:none; 
+    color: white; 
+    border-radius: 2em; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    background-color: transparent;
+    border: 2px solid #ac6730;
+}
+.button:hover{
+    color: black;
+    background-color: #0056b3;
+}
+.prediction{
+    width: 300px; 
+    background-color: lime; 
+    color: black; 
+    border-radius: 2em; 
+    height: 3em; 
+    margin-top: 2em ; 
+    margin-bottom: 2em;
+    font-size: 1em; 
+    font-weight: bold; 
+    text-transform: capitalize; 
+    text-align: center; 
+    line-height: 3em;
+}
+.prediction1{
+    width: 300px; 
+    background-color: lime; 
+    color: black; 
+    border-radius: 2em; 
+    height: 3em; 
+    margin-top: 2em ; 
+    margin-bottom: 2em;
+    font-size: 1em; 
+    font-weight: bold; 
+    text-transform: capitalize; 
+    text-align: center; 
+    line-height: 3em;
+}
+
+.file-input-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-input-label {
+    height: 200px;
+    width: 200px;
+    background-image: url("/static/dosya-PhotoRoom.png-PhotoRoom.png");
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: center;
+    border: 8px solid #ac6730;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(205, 133 ,63, 0.4);
+}
+
+
+
+
+input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.first_row{
+    position: relative; 
+    top: 5em; 
+    left: 0; 
+    margin-bottom: 10em;
+    width: auto;
+    height: auto;
+}
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+}
+body{
+    overflow-y: auto;
+    overflow-x: hidden;
+    /*background: rgb(23,150,163);
+    background: linear-gradient(180deg, rgba(23,150,163,1) 15%, rgba(255,255,255,1) 100%);*/
+    background-image: url(/static/Mysterious-Yellow-Eye-AI-Generated-4K-Wallpaper-2\ \(1\).jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+main{
+    flex: 1;
+}
+.predict-image{
+    position: relative;
+    height: 300px; 
+    width: 300px;
+    margin-top: 3em;
+    margin-bottom: 5em;
+}
+.predict-image1{
+    position: relative;
+    height: 300px; 
+    width: 300px;
+    margin-top: 2em;
+}
+.confidence{
+    width: 300px; 
+    background-color: lime; 
+    color: black; 
+    border-radius: 2em; 
+    height: 3em; 
+    margin-top: 2em ; 
+    margin-bottom: 2em;
+    font-size: 1em; 
+    font-weight: bold; 
+    text-align: center; 
+    line-height: 3em;
+}
+.confidence1{
+    width: 300px; 
+    background-color: lime; 
+    color: black; 
+    border-radius: 2em; 
+    height: 3em; 
+    margin-top: 2em ; 
+    margin-bottom: 2em;
+    font-size: 1em; 
+    font-weight: bold; 
+    text-align: center; 
+    line-height: 3em;
+}
+.form{
+    height: 300px;
+    width: 300px;
+}
+.first_col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    position: relative; 
+    height: 80%;
+}
+.sec_col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    position: relative;
+    height: 80%;
+}
+.Camera_open{
+    width: 300px;
+    height: 225px;
+    top: 0;
+    left: 0;
+    position: relative;         
+}
+.camera{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.camera_ac{
+    margin-left: 40px;
+    width: 200px;
+    height: 200px; 
+    text-align: center; 
+    text-decoration: none; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    background-color: rgba(205, 133 ,63, 0.4);
+    transition: background-color 0.3s ease; 
+    background-image: url("https://cdn.discordapp.com/attachments/708354580684996764/1175866679230726234/Photo-camera-in-circular-outlined-interface-button.svg.png?ex=656cca2e&is=655a552e&hm=61ab809ddc9b049a6f457490550cca93fb77d23e90547f808acb63ab71db71da&");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.camera_ac:hover{
+    background-color: transparent;
+}
+.camera_kpt{
+    width: 135px;
+    height: 48px;
+    position: relative;
+    margin-left:20px ;
+    right: 0;
+    font-size: 16px; 
+    text-align: center; 
+    text-decoration: none; 
+    border: none; 
+    color: #fff; 
+    border-radius: 2em; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    background-color: #007BFF;
+    padding: 12px 24px; 
+    margin-top: 0.5em;
+}
+.camera_kpt:hover{
+    background-color: #0056b3;
+}
+.prdct-btn{
+    height: 58px;
+    width: 300px;
+    position: relative; 
+    display: inline-block; 
+    padding: 12px 24px; 
+    font-size: 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    color: #ac6730; 
+    border-radius: 2em; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    background-color: transparent;
+    border: 2px solid #ac6730;
+}
+.prdct-btn:hover{
+    border: none;
+    color: black;
+    background-color: #0056b3;
+}
+.take_pic{
+    width: 300px;
+    height: 58px;
+    position: relative; 
+    display: inline-block; 
+    padding: 12px 24px; 
+    font-size: 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    color: #ac6730; 
+    border-radius: 2em; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    background-color: transparent;
+    border: 2px solid #ac6730;
+}
+.take_pic:hover{
+    color: black;
+    background-color: #0056b3;
+    border: none;
+}
+.formlar{
+    height: 48px;
+    display: flex;
+}
+.image_1{
+    margin-bottom: 3em;
+}
+
+.sidenav {
+height: 100%; 
+width: 0; 
+position: fixed; 
+z-index: 1; 
+top: 0; 
+left: 0;
+background-color: #111; 
+overflow-x: hidden; 
+padding-top: 60px; 
+transition: 0.5s; 
+}
+
+
+.sidenav a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+
+#main {
+transition: margin-left .5s;
+padding: 20px;
+}
+
+@media screen and (max-width: 650px){
+    #main{
+        flex-direction: column;
+        height: 600px;
+    }
+    .first_row{
+        left: 3.5em;
+        width: 300px;
+        height: 550px;
+        margin-bottom: 0;
+        
+    }
+    
+    .first_col{
+        width: 100%;
+        padding-top: 10%;
+        height: 250px;
+    }
+    .form{
+        height: 220px;
+        width: 300px;
+    }
+
+    .sec_col{
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%;
+        float: none;
+        text-align: center;
+        height: 250px;
+        margin-left: 15px;
+    }
+
+    .file-input-label {
+        height: 150px;
+        width: 150px;
+        background-image: url("/static/dosya-PhotoRoom.png-PhotoRoom.png");
+        background-repeat: no-repeat;
+        background-size: 120%;
+        background-position: center;
+        border: 5px solid black;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .camera_ac{
+        margin-left: 0;
+        padding: 0;
+        margin-top: 1em;
+        margin-bottom: 0;
+        width: 150px;
+        height: 150px; 
+        text-align: center; 
+        text-decoration: none; 
+        border-radius: 50%; 
+        cursor: pointer; 
+        background-color: transparent;
+        transition: background-color 0.3s ease; 
+        background-image: url("https://cdn.discordapp.com/attachments/708354580684996764/1175866679230726234/Photo-camera-in-circular-outlined-interface-button.svg.png?ex=656cca2e&is=655a552e&hm=61ab809ddc9b049a6f457490550cca93fb77d23e90547f808acb63ab71db71da&");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .Camera_open{
+        margin-top: 1em;
+    }
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+
+}
+.open_side{
+    position: relative;
+    margin-left: 1em;
+    height: 5em;
+    width: 5em;
+}
+.form-select{
+    width: 90%;
+    margin-top: 10%;
+}
+.Camera_open div{
+    display: inline-block;
+}
+
+.learn-more {
+position: relative;
+display: inline-block;
+cursor: pointer;
+outline: none;
+border: 0;
+vertical-align: middle;
+text-decoration: none;
+background: transparent;
+padding: 0;
+font-size: inherit;
+font-family: inherit;
+margin-top: 5%;
+}
+
+.learn-more {
+width: 12rem;
+height: auto;
+}
+
+.learn-more .circle {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: relative;
+display: block;
+margin: 0;
+width: 3rem;
+height: 3rem;
+background: #282936;
+border-radius: 1.625rem;
+}
+
+.learn-more .circle .icon {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+bottom: 0;
+margin: auto;
+background: #fff;
+}
+
+.learn-more .circle .icon.arrow {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+left: 0.625rem;
+width: 1.125rem;
+height: 0.125rem;
+background: none;
+}
+
+.learn-more .circle .icon.arrow::before {
+position: absolute;
+content: "";
+top: -0.29rem;
+right: 0.0625rem;
+width: 0.625rem;
+height: 0.625rem;
+border-top: 0.125rem solid #fff;
+border-right: 0.125rem solid #fff;
+transform: rotate(45deg);
+}
+
+.learn-more .button-text {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 0.75rem 0;
+margin: 0 0 0 1.85rem;
+color: #282936;
+font-weight: 700;
+line-height: 1.6;
+text-align: center;
+text-transform: uppercase;
+}
+
+.learn-more:hover .circle {
+width: 100%;
+}
+
+.learn-more:hover .circle .icon.arrow {
+background: #fff;
+transform: translate(1rem, 0);
+}
+
+.learn-more:hover .button-text {
+color: #fff;
+}
+.sidebar-buttons{
+    margin-top: 50%;
+    margin-left: 10%;
+}
+.sec_row{
+    margin-left: 10%;
+    width: 80%;
+    border: solid 10px #ac6730;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 2% 2%;
+}
+.sec_row p {
+    font-size: 18px;
+    margin-top: 2%;
+    color: black;
+}
+.h1_eye h1 {
+    padding-bottom: 1%;
+    color: black;
+    border-bottom: solid 3px #ac6730;
+}
+
+
+  
+.card {
+position: relative;
+height: 350px;
+overflow: hidden;
+border: none;
+background: transparent;
+}
+.card:hover .card-body {
+position: absolute;
+z-index: 10;
+bottom: 10px;
+}
+.card-head {
+height: 450px;
+margin: 0px 0px;
+border: 0px solid red;
+background-size: cover;
+background-repeat: no-repeat;
+transition: all 0.4s linear;
+}
+.card-body {
+display: none;
+color: #eee;
+}
+
+
+.p1 {
+    padding-top: 15px;
+    position: absolute;
+    background: #000050;
+    color: #fff;
+    width: 250px;
+    height: 65px;
+    left: -230px;
+    z-index: 100;
+    transition: all 0.4s linear;
+    margin-bottom: 0;
+    border: solid 3px white;
+}
+
+.p2 {
+    padding-top: 15px;
+    position: absolute;
+    background: black;
+    color: #fff;
+    width: 250px;
+    height: 65px;
+    left: -230px;
+    z-index: 100;
+    transition: all 0.4s linear;
+    margin-bottom: 20px;
+    border: solid 3px white;
+}
+
+.card:hover .card-body .btn-warning {
+position: relative;
+bottom: 0px;
+}
+.card:hover .p1,
+.card:hover .p2{
+left: 0px;
+}
+
+.card:hover::before {
+content: "";
+position: absolute;
+height: 100%;
+width: 100%;
+z-index: 20;
+}
+.card:hover .card-body,
+.card:hover .card-text {
+opacity: 1;
+z-index: 30;
+display: block;
+}
+
+.card:hover .card-head {
+margin: 0;
+border: none;
+background-position-y: center;
+background-repeat: no-repeat;
+transform: scale(2);
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>AI Health</title>
+    <link rel="stylesheet" href="/static/Eye.css">
+    
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sidebar-buttons">
+            <form action="{{ url_for('main_page') }}" method="get">
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Anasayfa</span>
+                </button>
+            </form>
+            <form action="{{ url_for('Nevus_page') }}" method="get">
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Nevus</span>
+                </button>
+            </form>
+            <form action="{{ url_for('Brain_Tumor_page') }}" method="get">
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Brain Tumor</span>
+                </button>
+            </form>
+            <form action="{{ url_for('symptom_page') }}" method="get">
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                    <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Disease Detect</span>
+                </button>
+            </form>
+        </div>
+    </div>
+       
+    <span class="open_side mt-2" onclick="openNav()" >
+        <svg  xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+    </span>
+    <div id="main row">
+        <div class="sec_row">
+            <div class="h1_eye"><h1>Eye Disease Nasıl Çalışır</h1></div>
+            <p>Göz sağlığı, genel sağlığımızın önemli bir göstergesidir. Göz hastalıklarının erken teşhisi, ciddi sağlık sorunlarından kaçınmamıza ve göz sağlığımızı korumamıza yardımcı olabilir. Artık bu süreci daha hızlı ve kolay hale getiren bir çözümle tanışın, Eye Disease, gelişmiş görüntü analiz teknolojisi kullanarak göz fotoğraflarınızı değerlendiren bir web uygulamasıdır. Ancak unutulmamalıdır ki, bu uygulama bir doktorun yerini almak amacıyla değil, kullanıcıya bilgi sağlamak için tasarlanmıştır.Eye Disease uygulamasına basitçe göz fotoğrafınızı yükleyin veya anlık göznüzün fotoğrafını çekin ve gelişmiş algoritmalar, fotoğrafınızdaki belirli özellikleri değerlendirsin. </p>
+        </div>
+        <div class="first_row row" >
+            <div class="first_col col-3">
+                <form class="form text-center" action="/Eye.html" method="post" enctype="multipart/form-data">
+                    <div class="file-input-container" id="file-input-container" >
+                        <label for="file-input" class="file-input-label" id="file_label"></label>
+                        <input onclick="kontrolEt()" class="files form-control" type="file" name="imagefile" id="CustomFile">
+                        <input class="button btn mt-3" type="submit" value="Predict_image" id="prdct_btn_file">
+                        <div class="valuess" id="valuess">
+
+                            <div class="container" id="container1" >
+                                <div class="row">
+                                  <div class="col-12 text-center mt-5 mb-5">
+                                    <div class="card m-auto" style="width: 20rem;">
+                                        {% if filename %}
+                                       <div class="card-head">
+                                            <img style="height: 350px; width: 300px;" src="{{url_for('static' , filename=filename)}}" >
+                                       </div>
+                                       {% endif %}
+                                        {%if prediction %}
+                                        <p class="p1" style="position:absolute; bottom:20px; text-align: start;">
+                                            <i class="bi bi-balloon-heart px-2"></i>Tahmin : {{prediction}}
+                                            <span class="triangel1"></span>    
+                                        </p>
+                                        {% endif %}
+                                        {%if confidence %}
+                                        <p class="p2" style="position:absolute; bottom:70px; text-align: start;">
+                                            <i class="bi bi-bell px-2"></i>Tahmin Oranı : %{{confidence}}
+                                            <span class="triangel2"></span>                
+                                        </p>
+                                        {% endif %}
+                                        
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>
+                        </div>
+                    </div>
+                    
+                </form>    
+            </div>  
+            <div class="sec_col col-3" id="sec_col">
+                <div class="Camera_open">
+                    <video class="camera" id="kamera-video" autoplay></video> 
+                    <button onclick="startCamera()" class="camera_ac" id="kamera-ac"></button>
+                    <div>
+                        <form class="form_capture1" action="/upload_photo3" method="get" enctype="multipart/form-data">
+                            <button class="prdct-btn mt-3" id="predict_btn"> Predict_image </button>
+                        </form>
+                    </div>
+                    <div>
+                        <button onclick="takePhoto()" class="take_pic mt-3" id="capture">Picture</button>
+                    </div>
+                    <canvas class="mt-3" id="canvas" width="300" height="300" ></canvas>
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                              <div class="col-18 text-center mt-5 mb-5">
+                                <div class="card m-auto" style="width: 20rem;">
+                                {% if image_pth %}
+                                <p>
+                                    <img  class="image_1" style="height: 470px; width: 300px;" src="../static/uploaded_photo.png">
+                                </p>
+                                {% endif %}
+                                {%if prediction1 %}
+                                <p class="p1" style="position:absolute; bottom:20px; text-align: start;">
+                                    <i class="bi bi-balloon-heart px-2"></i>Tahmin : {{prediction1}}
+                                    <span class="triangel1"></span>    
+                                </p>
+                                {% endif %}
+                                {%if confidence1 %}
+                                <p class="p2" style="position:absolute; bottom:70px; text-align: start;">
+                                    <i class="bi bi-bell px-2"></i>Tahmin Oranı : %{{confidence1 }}
+                                    <span class="triangel2"></span>                
+                                </p>
+                                {% endif %}
+                                    
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                        
+                    </div>  
+                </div>
+            </div>  
+        </div>
+    </div>
+
+<script>
+    
+    const kameraAcButton = document.getElementById('kamera-ac');   
+    let predict_btn = document.getElementById('predict_btn')
+    let container1 = document.getElementById('container1')
+    let videoStream;
+    let video = document.getElementById('kamera-video');
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+    let picture_btn = document.getElementById('capture')
+    let prdct_btn_file = document.getElementById('prdct_btn_file')
+    const fileLabel = document.getElementById('file_label');
+    let cont = document.getElementById('file-input-container')
+    let sec_col = document.getElementById('sec_col')
+    let click = 0 ;
+    const element1 = document.querySelector(".p1");
+    const element2 = document.querySelector(".p2");
+    const element3 = document.querySelector(".card-text");
+    const element4 = document.querySelector(".btn");
+    const element5 = document.querySelector(".p3");
+    const element6 = document.querySelector(".p4");
+    const element7 = document.querySelector(".p5");
+    const element8 = document.querySelector(".card-title");
+    let CustomFile = document.getElementById("CustomFile")
+    
+
+    video.style.display = 'none'
+    canvas.style.display = 'none'
+    prdct_btn_file.style.display = 'none'
+    predict_btn.style.display = 'none'
+    picture_btn.style.display = 'none'
+    
+    
+
+
+
+    const card = document.querySelector(".card");
+    card.addEventListener("mouseover", (event) => {
+    //element.style.setProperty('left', '0px');
+    element1.classList.add("animate__animated", "animate__bounceInLeft");
+    element1.style.setProperty("--animate-duration", "0.9s");
+    element2.classList.add("animate__animated", "animate__bounceInLeft");
+    element2.style.setProperty("--animate-duration", "1.4s");
+    element3.classList.add("animate__animated", "animate__slideInUp");
+    element3.style.setProperty("--animate-duration", "0.9s");
+    element4.classList.add("animate__animated", "animate__slideInUp");
+    element4.style.setProperty("--animate-duration", "1.4s");
+    element5.classList.add("animate__animated", "animate__bounceInLeft");
+    element5.style.setProperty("--animate-duration", "1.8s");
+    element6.classList.add("animate__animated", "animate__bounceInLeft");
+    element6.style.setProperty("--animate-duration", "2.4s");
+    element7.classList.add("animate__animated", "animate__bounceInLeft");
+    element7.style.setProperty("--animate-duration", "3s");
+    element8.classList.add("animate__animated", "animate__slideInUp");
+    element8.style.setProperty("--animate-duration", "0.6s");
+    });
+
+    card.addEventListener("mouseout", (event) => {
+    element1.classList.remove("animate__animated", "animate__bounceInLeft");
+    element2.classList.remove("animate__animated", "animate__bounceInLeft");
+    element3.classList.remove("animate__animated", "animate__slideInUp");
+    element4.classList.remove("animate__animated", "animate__slideInUp");
+    element5.classList.remove("animate__animated", "animate__bounceInLeft");
+    element6.classList.remove("animate__animated", "animate__bounceInLeft");
+    element7.classList.remove("animate__animated", "animate__bounceInLeft");
+    element8.classList.remove("animate__animated", "animate__slideInUp");
+    // element.style.setProperty('left', '-99px');
+    });
+
+
+    cont.addEventListener('mouseover' ,  function() {
+        fileLabel.style.transition = 'background-color 0.3s ease'
+        fileLabel.style.backgroundColor = 'transparent'
+    });
+
+    cont.addEventListener('mouseout' ,  function() {
+        fileLabel.style.backgroundColor = 'rgba(205, 133 ,63, 0.4)'
+    });
+    
+    
+
+    function kontrolEt() {
+            var file = document.getElementById('CustomFile')
+            var selectedFile = file.files[0];
+
+            if (!selectedFile) {
+                prdct_btn_file.style.display = 'block'
+            }
+    }
+
+    function startCamera() {
+        picture_btn.style.display = 'block'
+        kameraAcButton.style.display = 'none'
+        video.style.display = 'block'
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            videoStream = stream;
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(function(err) {
+            console.log("Kamera açılamadı: " + err);
+        });
+    }
+
+    function takePhoto() {
+        if (!videoStream) {
+            console.log("Kamera önce açılmalı.");
+            return;
+        }
+
+        picture_btn.style.display = 'none' ;
+        predict_btn.style.display = 'block' ;
+        context.drawImage(video, 0, 0, 300, 225);
+        let photoData = canvas.toDataURL('image/png');
+
+        let imgElement = document.createElement('img');
+        imgElement.src = photoData;
+        document.body.appendChild(imgElement);
+
+        imgElement.style.display = 'none'
+        
+    fetch('/upload_photo3', {
+        method: 'POST',
+        body: JSON.stringify({ photo: photoData }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Fotoğraf başarıyla gönderildi.');
+    })
+    .catch(error => {
+        console.error('Hata:', error);
+    });
+        
+    }
+    
+
+    function OzelFonk(){
+
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var contents = document.getElementById('valuess').innerHTML ;
+        
+        if(contents.includes("card-head")){
+            if (screenWidth <= 650) {
+                sec_col.style.marginTop = '25em' ;
+            }  
+        }
+        
+    }
+
+
+
+
+
+
+    // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde kontrol et
+    window.addEventListener('load', OzelFonk);
+    window.addEventListener('resize', OzelFonk);
+
+    
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+    }
+
+    
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

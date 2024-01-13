@@ -1,0 +1,934 @@
+.sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1;
+    top: 0; 
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+}
+
+
+.sidenav a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+
+#main {
+transition: margin-left .5s;
+padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}
+.open_side{
+    position: relative;
+    margin-left: 1em;
+    height: 5em;
+    width: 5em;
+}
+.form-select{
+    width: 90%;
+    margin-top: 10%;
+}
+.sc1 h1{
+    margin-left: 10%;
+    padding-top: 5%;
+    width: 60%;
+    color: black;
+}
+.sc1{
+    background-image: url("https://nodens.eu/wp-content/uploads/2019/10/AdobeStock_281967200.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.sc2{
+    background-image: url("https://previews.123rf.com/images/samarttiw/samarttiw1511/samarttiw151100085/48125760-medical-background-forms-of-the-molecule.jpg");
+    padding-top: 3%;
+    padding-left: 2%;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.One{
+    display: flex;
+}
+.box_main{
+    width: 50%;
+}
+.box{
+    margin-left:10% ;
+    width: 70%;
+    height: 495px;
+    padding: 5% 5%;
+    margin-top: 8%;
+    background-color: #aaaaffcc ;
+    border: solid 10px gray;
+    border-radius: 50px;
+}
+.box p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font: bolder;
+    font-size: 30px;
+    color: black;
+}
+.main{
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+.main h1{
+    width: 80%;
+    margin-left: 5%;
+    color: black;
+    font: bolder;
+    font-size: xxx-large;
+    font-family: 'Times New Roman', Times, serif;
+}
+.main p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width: 80%;
+    margin-left: 8%;
+    margin-top: 3%;
+}
+
+.search-container{
+background: #fff;
+height: 30px;
+border-radius: 30px;
+padding: 10px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transition: 0.8s;
+box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+            -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+inset -4px -4px 6px 0 rgba(255,255,255,.2),
+inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.search-container:hover > .search-input{
+    width: 400px;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn .fas{
+    color: #5cbdbb;
+}
+
+@keyframes hoverShake {
+0% {transform: skew(0deg,0deg);}
+25% {transform: skew(5deg, 5deg);}
+75% {transform: skew(-5deg, -5deg);}
+100% {transform: skew(0deg,0deg);}
+}
+
+.search-container:hover{
+animation: hoverShake 0.15s linear 3;
+}
+
+.Buttons{
+    width: 100%;
+    height: 15%;
+}
+
+.form_htmlButton{
+    height: 100%;
+}
+
+.htmlButton {
+margin-top: 5%;
+height: auto;
+background: transparent;
+padding: 0;
+border: none;
+cursor: pointer;
+}
+
+.htmlButton {
+--border-right: 6px;
+--text-stroke-color: black;
+--animation-color: #bf3eff;
+--fs-size: 2em;
+letter-spacing: 3px;
+text-decoration: none;
+font-size: var(--fs-size);
+font-family: "Arial";
+position: relative;
+text-transform: uppercase;
+color: transparent;
+-webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+position: absolute;
+box-sizing: border-box;
+content: attr(data-text);
+color: var(--animation-color);
+width: 0%;
+inset: 0;
+border-right: var(--border-right) solid var(--animation-color);
+overflow: hidden;
+transition: 0.5s;
+-webkit-text-stroke: 1px var(--animation-color);
+}
+
+.htmlButton:hover .hover-text {
+width: 100%;
+filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+article {
+--img-scale: 1.001;
+--title-color: black;
+--link-icon-translate: -20px;
+--link-icon-opacity: 0;
+position: relative;
+border-radius: 16px;
+box-shadow: none;
+background: rgba(48, 51, 71, 0.9) ;
+transform-origin: center;
+transition: all 0.4s ease-in-out;
+overflow: hidden;
+}
+
+article a::after {
+position: absolute;
+inset-block: 0;
+inset-inline: 0;
+cursor: pointer;
+content: "";
+}
+
+article h2 {
+margin: 0 0 18px 0;
+font-family: "Bebas Neue", cursive;
+font-size: 1.9rem;
+letter-spacing: 0.06em;
+color: var(--title-color);
+transition: color 0.3s ease-out;
+}
+
+figure {
+margin: 0;
+padding: 0;
+aspect-ratio: 16 / 9;
+overflow: hidden;
+}
+
+article img {
+max-width: 100%;
+transform-origin: center;
+transform: scale(var(--img-scale));
+transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+padding: 24px;
+}
+
+article a {
+display: inline-flex;
+align-items: center;
+text-decoration: none;
+color: #28666e;
+}
+
+article a:focus {
+outline: 1px dotted #28666e;
+}
+
+article a .icon {
+min-width: 24px;
+width: 24px;
+height: 24px;
+margin-left: 5px;
+transform: translateX(var(--link-icon-translate));
+opacity: var(--link-icon-opacity);
+transition: all 0.3s;
+}
+
+article:has(:hover, :focus) {
+--img-scale: 1.1;
+--title-color: white;
+--link-icon-translate: 0;
+--link-icon-opacity: 1;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+.articles {
+display: grid;
+max-width: 1200px;
+margin-inline: auto;
+padding-inline: 24px;
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+article {
+    container: card/inline-size;
+}
+.article-body p {
+    display: none;
+}
+}
+
+@container card (min-width: 380px) {
+.article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+}
+.article-body {
+    padding-left: 0;
+}
+figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+}
+
+.sr-only:not(:focus):not(:active) {
+clip: rect(0 0 0 0); 
+clip-path: inset(50%);
+height: 1px;
+overflow: hidden;
+position: absolute;
+white-space: nowrap; 
+width: 1px;
+}
+.sc3{
+    background-color: #E6E8EB;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.sc3 img{
+    float: right;
+    height: 100%;
+    width: 55%;
+}
+.tooltip-container{
+    transition: transform 0.2s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 2%;
+    margin-top: 10%;
+    margin-left: 5%;
+    border-radius: 30px;
+    width: 40%;
+}
+.tooltip-container div{
+    position: relative;
+    display: inline-block;
+}
+.tooltip-container2{
+    transition: transform 0.2s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    margin-top: -1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 2%;
+    padding-top: 1%;
+    margin-left: 5%;
+    border-radius: 30px;
+    width: 40%;
+}
+.tooltip-container2 div{
+    position: relative;
+    display: inline-block;
+}
+.tooltip-container3{
+    transition: transform 0.2s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: -1%;
+    padding-left: 3%;
+    padding-right: 2%;
+    margin-left: 5%;
+    border-radius: 30px;
+    width: 40%;
+}
+.tooltip-container3 div{
+    position: relative;
+    display: inline-block;
+}
+.tooltip{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    position: relative;
+    margin-left: 10%;
+    visibility: hidden;
+    width: auto;
+    background: #D6C0D8;
+    color: #8A6C98;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1; 
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-top: 4%;
+}
+
+.tooltip-container:hover .dolu-top {
+    transform: translateY(-5px);
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip-container2:hover .dolu-top {
+    background-color: #58B3CA;
+    transform: translateY(-5px);
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip-container3:hover .dolu-top {
+    background-color: #F3D95A;
+    transform: translateY(-5px);
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip-container2:hover .tooltip {
+    color: #2B688B;
+    background: #58B3CA;
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip-container3:hover .tooltip {
+    color: #A38520;
+    background: #F3D95A;
+    visibility: visible;
+    opacity: 1;
+}
+.dolu-top {
+visibility: hidden;
+opacity: 0;
+margin-left: -30px;
+display: inline-block;
+width: 20px;
+height: 20px;
+background-color: #D6C0D8; /* İstediğiniz rengi kullanabilirsiniz */
+border-radius: 50%; /* Daire şeklini elde etmek için yarıçapı yüzde 50 olarak ayarla */
+text-align: center;
+line-height: 50px; /* Dikey hizalama için line-height kullanılır */
+color: #fff; /* İçerik rengi */
+font-size: 8px; /* İçerik font büyüklüğü */
+}
+
+.tooltip-container2:hover{
+    transform: translateY(-100px);
+}
+.tooltip-container3:hover{
+    transform: translateY(-100px);
+}
+
+.tooltip-container:hover .tooltip-text{
+    background: white;
+    color: #56336E;
+}
+.tooltip-text{
+    color: #8A6C98;
+    background:#D6C0D8;
+    border-radius: 20px;
+    padding: 1% 2%;
+}
+
+.tooltip-container2:hover .tooltip-text2{
+    background: white;
+    color: #1C4F75;
+}
+.tooltip-text2{
+    color: #2B688B;
+    background:#58B3CA;
+    border-radius: 20px;
+    padding: 1% 2%;
+}
+
+.tooltip-container3:hover .tooltip-text3{
+    background: white;
+    color: #88690C;
+}
+.tooltip-text3{
+    color: #A38520;
+    background:#F3D95A;
+    border-radius: 20px;
+    padding: 1% 2%;
+}
+
+@media screen and (max-width: 650px){
+    article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: rgba(48, 51, 71, 0.9) ;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    width: 75%;
+    margin-left: 12%;
+    }
+    
+    article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: "";
+    }
+    
+    article h2 {
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+    text-align: center;
+    }
+    
+    figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    }
+    
+    article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+    }
+    
+    .article-body {
+    padding: 24px;
+    }
+    
+    article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #28666e;
+    }
+    
+    article a:focus {
+    outline: 1px dotted #28666e;
+    }
+    
+    article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+    }
+    
+    article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: white;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+    
+    *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+    }
+    
+    .articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    }
+    body{
+        width: 500px;
+        background-color: #E6E8EB;
+    }
+    .sc1{
+        background-image: url("https://nodens.eu/wp-content/uploads/2019/10/AdobeStock_281967200.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .sc2{
+        background-image: url("https://previews.123rf.com/images/samarttiw/samarttiw1511/samarttiw151100085/48125760-medical-background-forms-of-the-molecule.jpg");
+        padding-top: 3%;
+        padding-left: 2%;
+        padding-bottom: 10%;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        
+    }
+    .sc3{
+        background-color: #E6E8EB;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .sc3 img{
+        display: none;
+        float: right;
+        width: 50%;
+        margin-left: 0;
+    }
+    .tooltip-container{
+        transition: transform 0.2s ease-in-out;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 35px;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 3%;
+        padding-right: 2%;
+        margin-top: 5%;
+        margin-left: 5%;
+        border-radius: 30px;
+        width: 100%;
+    }
+    .tooltip-container div{
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip-container2{
+        transition: transform 0.2s ease-in-out;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 35px;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        margin-top: -5%;
+        padding-bottom: 1%;
+        padding-left: 3%;
+        padding-right: 2%;
+        padding-top: 5%;
+        margin-left: 5%;
+        border-radius: 30px;
+        width: 100%;
+    }
+    .tooltip-container2 div{
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip-container3{
+        transition: transform 0.2s ease-in-out;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 35px;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-top: 5%;
+        padding-left: 3%;
+        padding-right: 2%;
+        margin-left: 5%;
+        border-radius: 30px;
+        width: 100%;
+    }
+    .tooltip-container3 div{
+        position: relative;
+        display: inline-block;
+    }
+    .tooltip{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: large;
+        position: relative;
+        margin-left: 10%;
+        visibility: hidden;
+        width: 80%;
+        background: #D6C0D8;
+        color: #8A6C98;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1; 
+        opacity: 0;
+        transition: opacity 0.3s;
+        margin-top: 7%;
+    }
+    
+    .tooltip-container:hover .dolu-top {
+        transform: translateY(-40px);
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip-container2:hover .dolu-top {
+        background-color: #58B3CA;
+        transform: translateY(-40px);
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip-container3:hover .dolu-top {
+        background-color: #F3D95A;
+        transform: translateY(-40px);
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .tooltip-container:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip-container2:hover .tooltip {
+        color: #2B688B;
+        background: #58B3CA;
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip-container3:hover .tooltip {
+        color: #A38520;
+        background: #F3D95A;
+        visibility: visible;
+        opacity: 1;
+    }
+    .dolu-top {
+    visibility: hidden;
+    opacity: 0;
+    margin-left: -30px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #D6C0D8; /* İstediğiniz rengi kullanabilirsiniz */
+    border-radius: 50%; /* Daire şeklini elde etmek için yarıçapı yüzde 50 olarak ayarla */
+    text-align: center;
+    line-height: 50px; /* Dikey hizalama için line-height kullanılır */
+    color: #fff; /* İçerik rengi */
+    font-size: 8px; /* İçerik font büyüklüğü */
+    }
+    
+    .tooltip-container2:hover{
+        transform: translateY(-80px);
+    }
+    .tooltip-container3:hover{
+        transform: translateY(-100px);
+    }
+    
+    .tooltip-container:hover .tooltip-text{
+        background: white;
+        color: #56336E;
+    }
+    .tooltip-text{
+        color: #8A6C98;
+        background:#D6C0D8;
+        border-radius: 20px;
+        padding: 7% 7%;
+        width: 80%;
+    }
+    
+    .tooltip-container2:hover .tooltip-text2{
+        background: white;
+        color: #1C4F75;
+    }
+    .tooltip-text2{
+        color: #2B688B;
+        background:#58B3CA;
+        border-radius: 20px;
+        padding: 5% 10%;
+        width: 80%;
+    }
+    
+    .tooltip-container3:hover .tooltip-text3{
+        background: white;
+        color: #88690C;
+    }
+    .tooltip-text3{
+        color: #A38520;
+        background:#F3D95A;
+        border-radius: 20px;
+        padding: 7% 7%;
+        width: 80%;
+    }
+    .One{
+        display: flex;
+        flex-direction: column;
+    }
+    .main{
+        width: 100%;
+        height: 50%;
+        margin-top: 10%;
+        margin-left: 0;
+    }
+    .main h1{
+        width: 90%;
+        margin-left: 5%;
+        color: black;
+        font: bolder;
+        font-size: xxx-large;
+        font-family: 'Times New Roman', Times, serif;
+        font-style: italic;
+    }
+    .main p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        width: 85%;
+        margin-left: 8%;
+        margin-top: 8%;
+        font-style: italic;
+    }
+    .box_main{
+        width: 85%;
+        height: 50%;
+        flex-direction: column;
+        
+    }
+    .box{
+        margin-left:10% ;
+        width: 100%;
+        height: 100%;
+        padding: 5% 5%;
+        margin-top: 20%;
+        background-color: #aaaaffcc ;
+        border: solid 10px gray;
+        border-radius: 50px;
+        margin-right: 50px;
+    }
+    .box p{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font: bolder;
+        font-size: 30px;
+        color: black;
+    }
+    .Buttons{
+        width: 100%;
+        height: 15%;
+    }
+    
+    .form_htmlButton{
+        height: 100%;
+    }
+    
+    .htmlButton {
+    margin-top: 15%;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    }
+    
+    .htmlButton {
+    --border-right: 6px;
+    --text-stroke-color: black;
+    --animation-color: #bf3eff;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    }
+    
+    .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+    }
+    
+    .htmlButton:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+    }
+}

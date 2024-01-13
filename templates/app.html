@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>AI Health</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+
+<body>
+    <section class="sc1">
+        <div class="One">
+            <div class="main">
+                <h1>Sağlığınızı Önemseyin, Teknolojiyle Tanıyı Yakalayın!</h1>
+                <p>Hayatınızda her adımınızda sağlık öncelikli olmalıdır. Artık sağlığınızı korumak ve hastalıkları erken tespit etmek çok daha kolay ve erişilebilir hale geldi. Yenilikçi yapay zeka tabanlı uygulamamız, sağlık sorunlarınızı tespit etme konusunda size yardımcı olmak için burada.</p>
+            </div>
+            <div class="box_main">
+              <div class="box">
+                <p>Ne yapmak İstersiniz?</p>
+                <div class="search-container">
+                    <input type="text" name="search" placeholder="Search..." class="search-input">
+                    <a href="#" class="search-btn">
+                        <i class="fas fa-search"></i>      
+                    </a>
+                </div>
+                <div class="Buttons">
+                    <form class="form_htmlButton" action="{{ url_for('Nevus_page') }}" method="get">
+                        <button class="htmlButton" data-text="Awesome">
+                            <span class="actual-text">&nbsp;Nevus_Detect&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;Nevus_Detect&nbsp;</span>
+                        </button>
+                    </form>
+                    <!--<p><a href="{{ url_for('Nevus_page') }}">Nevus Detection</a></p>-->
+                </div>
+                <div class="Buttons">
+                    <form class="form_htmlButton" action="{{ url_for('Brain_Tumor_page') }}" method="get">
+                        <button class="htmlButton" data-text="Awesome">
+                            <span class="actual-text">&nbsp;Brain_MR_Detect&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;Brain_MR_Detect&nbsp;</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="Buttons">
+                  <form class="form_htmlButton" action="{{ url_for('symptom_page') }}" method="get">
+                      <button class="htmlButton" data-text="Awesome">
+                          <span class="actual-text">&nbsp;Disease_Detect&nbsp;</span>
+                          <span aria-hidden="true" class="hover-text">&nbsp;Disease_Detect&nbsp;</span>
+                      </button>
+                  </form>
+                </div>
+                <div class="Buttons">
+                  <form class="form_htmlButton" action="{{ url_for('eye_page') }}" method="get">
+                      <button class="htmlButton" data-text="Awesome">
+                          <span class="actual-text">&nbsp;Eye_Disease&nbsp;</span>
+                          <span aria-hidden="true" class="hover-text">&nbsp;Eye_Disease&nbsp;</span>
+                      </button>
+                  </form>
+                </div>
+            </div>
+            </div>
+              
+        </div>
+             
+    </section>
+    <section class="sc2">
+        <div class="main1">
+            <section class="articles">
+                <article>
+                  <div class="article-wrapper">
+                    <figure>
+                      <img src="/static/istockphoto-1336436027-612x612.jpg" alt="" />
+                    </figure>
+                    <div class="article-body">
+                      <h2>Hızlı ve Hassas Teşhis</h2>
+                      <p style="color: white;">
+                        Yapay zeka destekli bu platform, kullanıcıların belirli semptomları rapor etmelerine olanak tanırken, derin öğrenme algoritmaları sayesinde geniş bir hastalık veritabanını kullanarak hızlı ve hassas bir şekilde olası teşhisler sunar. Sadece birkaç adımda, belirtilerinizle ilgili doğru yönlendirmeler alabilirsiniz.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <article>
+                  <div class="article-wrapper">
+                    <figure>
+                      <img style="height: 250px;" src="/static/siem-guvenlik-bilgileri-ve-olay-yonetimi-nedir-bulut-bilisim-ortaminda-guvenligin-onemi.jpeg" alt="" />
+                    </figure>
+                    <div class="article-body">
+                      <h2>Verileriniz Güvende</h2>
+                      <p style="color: white;">
+                        Gizliliğiniz ve veri güvenliğiniz bizim için önemlidir. Tüm kişisel bilgileriniz, en üst düzeyde güvenlik önlemleriyle korunur ve gizlilik politikalarımızla uyumludur.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+                <article>
+              
+                  <div class="article-wrapper">
+                    <figure>
+                      <img src="/static/istockphoto-1220059468-612x612.jpg" alt="" />
+                    </figure>
+                    <div class="article-body">
+                      <h2>Sağlık Kontrolü Parmaklarınızın Ucunda</h2>
+                      <p style="color: white;">
+                        Artık sağlığınızı göz ardı etmek zorunda değilsiniz. Uygulamamızı kullanarak düzenli olarak sağlık durumunuzu kontrol edebilir, olası riskleri önceden tespit edebilir ve sağlıklı yaşam için doğru adımları atabilirsiniz.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </section>
+        </div>
+    </section>
+    <section class="sc3">
+        <img src="/static/istockphoto-1055081762-612x612.png" >
+        <div class="sc3_first">
+            <div class="tooltip-container">
+                <div><span class="dolu-top"></span></div>
+                <div class="tooltip-text">Dilediğiniz Yerde Teşhis</div>
+                <div class="tooltip" >Telefon Yardımıyla İstediğiniz yerde , İstediğiniz zamanda ön tanı imkanı</div>
+            </div>
+            <div class="tooltip-container2">
+                <div><span class="dolu-top"></span></div>
+                <div class="tooltip-text2">Randevu Derdine Son!!</div>
+                <div class="tooltip" >Hastanelerden Boş Yere Randevu Almanıza Gerek Kalmadan Hastalığınız hakkında Ön Tanı Alma İmkanı</div>
+            </div>
+            <div class="tooltip-container3">
+                <div><span class="dolu-top"></span></div>
+                <div class="tooltip-text3">Yapay Zeka Yanınızda</div>
+                <div class="tooltip" >Yapay Zeka Teknikleri Kullanılarak Belirli Hastalıklara Anında Ön Teşhis</div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+<script>
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,555 @@
+:root {
+  --mainColor: blueviolet;
+}
+.form{
+  position: relative;
+  height: 100vh;
+  top: -50px;
+} 
+body{
+  position: relative;
+  height: 100vh;
+}
+.form1{
+  height: 100vh;
+}
+.box{
+  position: relative;
+}
+.box1 {
+  display: inline-block;
+  margin-right: 10px; /* İsteğe bağlı: Checkbox'lar arasındaki boşluğu ayarlar */
+}
+.container {
+  width: 400px;
+  height: auto;
+  background-color: #1e272e;
+  position: relative;
+  transform: translate(-50%, -50%);
+  border-radius: 4rem;
+  padding: 10px;
+  margin-left: 50%;
+}
+
+.search__box {
+  float: left;
+  width: 0;
+  height: 2rem;
+  background: none;
+  color: #f7f7f7;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  position: relative;
+  opacity: 1;
+  transition: all .75s ease-in;
+  cursor: pointer;
+}
+
+.search__icon {
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  margin-left: .8rem;
+  margin-top: 0;
+  cursor: pointer;
+  position: absolute;
+  color: #fa983a;
+  transition: all .25s ease-in;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.container:hover > .search__box {
+  width: 85%;
+  padding: 0 1rem;
+}
+
+.container:hover > .search__icon {
+  background-color: #eee;
+}
+
+.show {
+  width: 85%;
+  border: 1px solid red;
+}
+
+.sidenav {
+height: 100%; 
+width: 0; 
+position: fixed; 
+z-index: 1; 
+top: 0; 
+left: 0;
+background-color: #111; 
+overflow-x: hidden; 
+padding-top: 60px; 
+transition: 0.5s; 
+}
+
+
+.sidenav a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+.learn-more {
+position: relative;
+display: inline-block;
+cursor: pointer;
+outline: none;
+border: 0;
+vertical-align: middle;
+text-decoration: none;
+background: transparent;
+padding: 0;
+font-size: inherit;
+font-family: inherit;
+margin-top: 5%;
+}
+
+.learn-more {
+width: 12rem;
+height: auto;
+}
+
+.learn-more .circle {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: relative;
+display: block;
+margin: 0;
+width: 3rem;
+height: 3rem;
+background: #282936;
+border-radius: 1.625rem;
+}
+
+.learn-more .circle .icon {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+bottom: 0;
+margin: auto;
+background: #fff;
+}
+
+.learn-more .circle .icon.arrow {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+left: 0.625rem;
+width: 1.125rem;
+height: 0.125rem;
+background: none;
+}
+
+.learn-more .circle .icon.arrow::before {
+position: absolute;
+content: "";
+top: -0.29rem;
+right: 0.0625rem;
+width: 0.625rem;
+height: 0.625rem;
+border-top: 0.125rem solid #fff;
+border-right: 0.125rem solid #fff;
+transform: rotate(45deg);
+}
+
+.learn-more .button-text {
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+padding: 0.75rem 0;
+margin: 0 0 0 2.2rem;
+color: #282936;
+font-weight: 700;
+line-height: 1.6;
+text-align: center;
+text-transform: uppercase;
+}
+
+.learn-more:hover .circle {
+width: 100%;
+}
+
+.learn-more:hover .circle .icon.arrow {
+background: #fff;
+transform: translate(1rem, 0);
+}
+
+.learn-more:hover .button-text {
+color: #fff;
+}
+.sidebar-buttons{
+    margin-top: 50%;
+    margin-left: 10%;
+}
+
+.project .boxes {
+  height: 60vh;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 15px;
+  position: relative; 
+  overflow: auto;
+  border: 13px solid #ccc; /* Sınır ekler */
+  border-radius: 50px;
+  margin-left: 15%;
+  margin-top: 7%;
+  padding-left: 3.5rem;
+  padding-top: 5%;
+  
+}
+.cssbuttons-io-button {
+  background: #a370f0;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 3em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-top: 3%;
+  width: 20%;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+.project .boxes::-webkit-scrollbar {
+  height: 200px;
+}
+
+.project .boxes .box1 {
+  position: relative;
+}
+input[type="checkbox" i] {
+  appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  width: 125px;
+  height: 50px;
+  background-color: transparent;
+  z-index: 0;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+  
+input[type="checkbox" i]:hover{
+    background-color: rgba(214, 213, 213, 0.9);
+}
+  
+input[type="checkbox" i]:checked{
+    border: 4px solid var(--mainColor);
+    background-color: rgba(174, 174, 174, 0.772);
+}
+  
+
+.project .boxes .box1  label {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 900;
+  color: var(--mainColor);
+}
+
+.rotating-text-wrapper {
+  margin-top: 70px;
+  width: 80%;
+  left: 10%;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.rotating-text-wrapper h2 {
+  font-size: 2.5em;
+  margin: 0;
+  padding: 0.3em;
+  color: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  opacity: 0;
+  border-radius: 50px;
+}
+.rotating-text-wrapper h2:nth-child(1) {
+  background-color: lightseagreen;
+  animation-name: rotating-text-1;
+}
+@keyframes rotating-text-1 {
+  0% {
+    transform: translateY(200%);
+  }
+  33% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  34% {
+    opacity: 0;
+  }
+}
+.rotating-text-wrapper h2:nth-child(2) {
+  background-color: #ccc;
+  animation-name: rotating-text-2;
+}
+@keyframes rotating-text-2 {
+  33% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  66% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  67% {
+    opacity: 0;
+  }
+}
+.rotating-text-wrapper h2:nth-child(3) {
+  background-color: var(--mainColor);
+  animation-name: rotating-text-3;
+}
+@keyframes rotating-text-3 {
+  66% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  99% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .rotating-text-wrapper {
+    font-size: 0.7rem;
+  }
+}
+.text_box{
+  position: relative;
+  margin: 40px 20px;
+  padding: 30px 30px;
+  border:10px solid #ccc;
+  border-radius: 30px;
+}
+
+.disease_name{
+  font-family:Jazz LET, fantasy;
+  font-style: italic;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+.desc_h{
+  font-family:Jazz LET, fantasy;
+  font-style: italic;
+  font-size: 30px;
+}
+.to_do{
+  font-family:Jazz LET, fantasy;
+  font-style: italic;
+  font-size: 30px;
+}
+.to_do_li{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+}
+.disease_descr{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+}
+  
+@media screen and (max-width: 650px){
+  .box{
+    left: -10px;
+    width: 100%;
+    right: 50px;
+  }
+  .container {
+    width: 100%;
+    height: auto;
+    background-color: #1e272e;
+    position: relative;
+    transform: translate(-50%, -50%);
+    border-radius: 4rem;
+    padding: 10px;
+    margin-top: 30px;
+    left: -15px;
+  }
+  .search__box {
+    width: 170px;
+    height: 2rem;
+    background: none;
+    color: #f7f7f7;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    position: relative;
+    opacity: 1;
+    transition: all .75s ease-in;
+    cursor: pointer;
+  }
+  
+  .search__icon {
+    box-sizing: border-box;
+    font-size: 2rem;
+    margin-left: -50px;
+    margin-top: 0;
+    cursor: pointer;
+    position: absolute;
+    color: #fa983a;
+    transition: all .25s ease-in;
+    padding: 0 5px;
+    border-radius: 50%;
+  }
+  
+  .container:hover > .search__box {
+    padding: 0 1rem;
+  }
+  
+  .container:hover > .search__icon {
+    background-color: #eee;
+  }
+  
+  .show {
+    border: 1px solid red;
+  }
+  .project .boxes {
+    height: 60vh;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 15px;
+    position: relative; 
+    overflow: auto;
+    border: 13px solid #ccc; /* Sınır ekler */
+    border-radius: 50px;
+    margin-left: 15%;
+    margin-right: 25%;
+    padding-left: 3.5rem;
+    padding-top: 5%;
+    margin-top: 70px;
+  }
+  .cssbuttons-io-button {
+    background: #a370f0;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 3em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 3em;
+    padding-right: 3.3em;
+    cursor: pointer;
+    margin-left: 23%;
+    margin-top: 5%;
+    width: 50%;
+  }
+  input[type="checkbox" i] {
+    appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    z-index: 0;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+}
